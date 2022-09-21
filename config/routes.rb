@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   resources :foods
-  root "foods#index"
+  root 'foods#index'
 end
