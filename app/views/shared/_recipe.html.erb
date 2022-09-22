@@ -2,7 +2,9 @@
  <div>
    <h2><%= recipe.name %></h2>
    <span>
-    <%= button_to "DELETE", recipe_path(id: recipe.id), :method => "delete" %>
+    <% if current_user.id == recipe.user_id %>
+      <%= button_to "DELETE", recipe_path(id: recipe.id), :method => "delete" %>
+    <% end %>
    </span>
  </div>
 
