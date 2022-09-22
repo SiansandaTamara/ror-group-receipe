@@ -1,0 +1,9 @@
+<div>
+  <% if user_signed_in? %>
+    <%= button_to "Add Recipe", new_recipe_path, :method => "get" %>
+  <% end %>
+</div>
+
+<% @recipes.each do |recipe| %>
+  <%= render partial: "shared/recipe", locals: { recipe: recipe } %>
+<% end %>
