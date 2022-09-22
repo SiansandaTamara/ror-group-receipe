@@ -1,7 +1,8 @@
-<% if current_user %>
-  Hello <%=current_user.name %>
-  <%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete%>
-<% else %>
-  <%= link_to "Sign Up!", new_user_registration_path, 'data-turbo-method': :GET%><br/>
-  <%= link_to "Sign In", new_user_session_path, 'data-turbo-method': :GET%>
-<% end %>
+<div class="container">
+<p style="color: green"><%= notice %></p>
+
+<h1>Foods</h1>
+
+<%= render 'foods/food' %>
+<%= link_to "New food", new_food_path %>
+</div>
