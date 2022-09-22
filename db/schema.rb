@@ -64,3 +64,5 @@ ActiveRecord::Schema[7.0].define(version: 20_220_922_111_053) do
   add_foreign_key 'recipe_foods', 'recipes'
   add_foreign_key 'recipes', 'users'
 end
+
+
