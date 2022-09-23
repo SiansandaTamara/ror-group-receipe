@@ -1,1 +1,45 @@
-<p>List specific recipes</p>
+<h1><%= @recipe.name %></h1>
+<table>
+  <tr>
+    <td>Preparation time: <%= @recipe.preparation_time %> hour</td>
+    <td>Public : 
+      <label class="switch">
+        <input type="checkbox" <%= 'checked' || @recipe.public %> >
+        <span class="slider round"></span>
+      </label>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">Cooking time: <%= @recipe.cooking_time %> hour</td>
+  </tr>
+  <tr>
+    <td colspan="2"><%= @recipe.description %></td>
+  </tr>
+</table>
+
+<div>
+  <%= button_to "Genrate shopping list" %>
+  <%= button_to "Add ingredients", new_recipe_recipe_food_path(@recipe.id), :method => "get" %>
+</div>
+
+<div>
+  <table>
+    <tr>
+      <th>Food</th>
+      <th>Quantiry</th>
+      <th>Value</th>
+      <th>Actions</th>
+    </tr>
+    <% @recipe.recipe_foods.each do |item|%>
+      <tr>
+        <td><%= item.food.name %></td>
+        <td><%= item.quantity %><%= item.food.measurement_unit %></td>
+        <td><%= item.food.price * item.quantity %></td>
+        <td>
+          <%= link_to "Modigy" %>
+          <%= link_to "Remove" %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
