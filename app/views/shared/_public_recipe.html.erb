@@ -1,11 +1,11 @@
-<div>
+<div class="flex flex-bordered padding">
   <div>
-    <h2><%= recipe.name %></h2>
+    <h2 class="list-title"><%= recipe.name %></h2>
     <span>By <%= recipe.user.name %></span>
   </div>
-  <div>
-    <span>Total food items: <%= recipe.recipe_foods.size %></span>
-    <span>Total price: <%= recipe.recipe_foods.inject(0) { |sum, i| sum + (i.food.price * i.quantity) }%>
-    </span>
-  </div>
+  <ul class="item-list">
+    <li>Total food items: <%= recipe.recipe_foods.size %></li>
+    <li>Total price: <%= recipe.recipe_foods.inject(0) { |sum, i| sum + (i.food.price * i.quantity) }%>
+    </li>
+  </ul>
 </div>

@@ -1,41 +1,44 @@
-<h1><%= @recipe.name %></h1>
-<table>
-  <tr>
-    <td>Preparation time: <%= @recipe.preparation_time %> hour</td>
-    <td>Public : 
-      <label class="switch">
-        <input type="checkbox" <%= 'checked' || @recipe.public %> >
-        <span class="slider round"></span>
-      </label>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2">Cooking time: <%= @recipe.cooking_time %> hour</td>
-  </tr>
-  <tr>
-    <td colspan="2"><%= @recipe.description %></td>
-  </tr>
-</table>
-
-<div>
-  <%= button_to "Genrate shopping list" %>
-  <%= button_to "Add ingredients", new_recipe_recipe_food_path(@recipe.id), :method => "get" %>
-</div>
-
-<div>
-  <table>
+<div class="content">
+  <h1 class="page-title"><%= @recipe.name %></h1>
+  <table class="item-header collapse">
     <tr>
-      <th>Food</th>
-      <th>Quantiry</th>
-      <th>Value</th>
-      <th>Actions</th>
+      <td>Preparation time: <%= @recipe.preparation_time %> hour</td>
+      <td>Public : 
+        <label>
+          <input type="checkbox" <%= 'checked' || @recipe.public %> >
+          <span class="slider round"></span>
+        </label>
+      </td>
     </tr>
+    <tr>
+      <td colspan="2">Cooking time: <%= @recipe.cooking_time %> hour</td>
+    </tr>
+    <tr>
+      <td colspan="2"><%= @recipe.description %></td>
+    </tr>
+  </table>
+
+  <div class="flex-space-between">
+    <%= button_to "Genrate shopping list" %>
+    <%= button_to "Add ingredients", new_recipe_recipe_food_path(@recipe.id), :method => "get" %>
+  </div>
+
+  <table class="table table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>Food</th>
+        <th>Quantiry</th>
+        <th>Value</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
     <% @recipe.recipe_foods.each do |item|%>
       <tr>
         <td><%= item.food.name %></td>
         <td><%= item.quantity %><%= item.food.measurement_unit %></td>
         <td><%= item.food.price * item.quantity %></td>
-        <td>
+        <td class="link-list">
           <%= link_to "Modigy" %>
           <%= link_to "Remove" %>
         </td>
