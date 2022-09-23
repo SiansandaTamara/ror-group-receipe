@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   end
 
   get 'public_recipes', to: 'recipes#public'
+  get 'general_shopping_list/:recipe_id', to: 'shoplist#show', as: 'general_shopping_list'
 end

@@ -52,6 +52,7 @@
 
 .content {
   padding: 2rem 1rem;
+  margin-top: 1rem;
 }
 
 .page-title {
@@ -66,6 +67,7 @@ button,
   box-shadow: 5px 5px rgb(27, 143, 192, 0.5);
   color: #fff;
   background-color: #1b8fc0;
+  cursor: pointer;
 }
 
 .flex-right {
@@ -138,6 +140,7 @@ button,
 .form-control input[type='number'],
 .form-control input[type='email'],
 .form-control input[type='password'],
+.form-control select,
 .form-control textarea {
   border-radius: 2px;
   border: 1px solid #000;
@@ -194,4 +197,21 @@ button,
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
+}
+
+.flash-msg {
+  padding: 1rem;
+  width: 400px;
+  margin: 1rem 2rem;
+  color: rgb(9, 104, 28);
+}
+
+.notice {
+  background-color: rgb(9, 104, 28, 0.2);
+  color: #fff;
+}
+
+.alert {
+  background-color: rgb(114, 17, 48, 0.2);
+  color: #fff;
 }

@@ -1,8 +1,11 @@
-<div class="d-flex flex-column mb-2 align-items-center">
-  <h1>Total Items: <%= @total_items %></h1>
-  <h1>Total Price: <%= @total_price %></h1>
-  <table class="table">
-    <thead>
+<div class="content">
+  <h1 class="page-title">Shopping List</h1>
+  <div class="flex-space-between">
+    <h3>Total Items: <%= @total_items %></h3>
+    <h3>Total Price: <%= @total_price %></h3>
+  </div>
+  <table class="table table-bordered">
+    <thead class="table-dark">
       <tr>
         <th scope="col">Food</th>
         <th scope="col">Quantity</th>
@@ -10,7 +13,7 @@
       </tr>
     </thead>
     <tbody>
-    <% @recipe_food.each do |food|%>
+    <% @recipe.recipe_foods.each do |food|%>
     <tr>
       <td> <%= food.food.name %></td>
       <td><%= food.quantity %> <%= food.food.measurement_unit %></td>
@@ -19,3 +22,4 @@
     <% end %>
   </table>
 </div>
+

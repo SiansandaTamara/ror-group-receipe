@@ -19,7 +19,7 @@
   </table>
 
   <div class="flex-space-between">
-    <%= button_to "Genrate shopping list" %>
+    <%= button_to "Genrate shopping list", general_shopping_list_path(recipe_id: @recipe.id), :method => 'get' %>
     <%= button_to "Add ingredients", new_recipe_recipe_food_path(@recipe.id), :method => "get" %>
   </div>
 
