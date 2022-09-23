@@ -1,26 +1,30 @@
-<h1>New Recipes</h1>
-<%= form_with model: @recipe, url: recipes_path  do |f| %>
-  <div>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <%= f.label :preparation_time, 'Preparation time' %><br>
-    <%= f.number_field :preparation_time, step: :any %>
-  </div>
-  <div>
-    <%= f.label :cooking_time, 'Cooking time' %><br>
-    <%= f.number_field :cooking_time, step: :any %>
-  </div>
-  <div>
-    <%= f.label :public %><br>
-    <%= f.check_box :public %>
-  </div>
-  <div>
-    <%= f.label :description %><br>
-    <%= f.text_area :description, size: "70x5"%>
-  </div>
-  <div>
-    <%= f.submit "Add Recipe" %>
-  </div>
-<% end %>
+<div class="content">
+  <h1 class="page-title">New Recipes</h1>
+  <%= form_with model: @recipe, url: recipes_path do |f| %>
+    <div class='form-control'>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class='form-control'>
+      <%= f.label :preparation_time, 'Preparation time' %><br>
+      <%= f.number_field :preparation_time, step: :any %>
+    </div>
+    <div class='form-control'>
+      <%= f.label :cooking_time, 'Cooking time' %><br>
+      <%= f.number_field :cooking_time, step: :any %>
+    </div>
+    <div class='form-control'>
+      <%= f.label :public %><br>
+      <%= f.check_box :public %>
+      <span class="slider round"></span>
+    </div>
+    <div class='form-control'>
+      <%= f.label :description %><br>
+      <%= f.text_area :description, size: "70x5" %>
+    </div>
+    <div>
+      <%= f.submit "Add Recipe", class: 'button' %>
+    </div>
+  <% end %>
+</div>
+

@@ -1,9 +1,12 @@
-<div>
-  <% if user_signed_in? %>
-    <%= button_to "Add Recipe", new_recipe_path, :method => "get" %>
+<div class="content">
+  <h1 class="page-title">Recipes List</h1>
+  <div class="full-width flex-right">
+    <% if user_signed_in? %>
+      <%= button_to "Add Recipe", new_recipe_path, :method => "get" %>
+    <% end %>
+  </div>
+
+  <% @recipes.each do |recipe| %>
+    <%= render partial: "shared/recipe", locals: { recipe: recipe } %>
   <% end %>
 </div>
-
-<% @recipes.each do |recipe| %>
-  <%= render partial: "shared/recipe", locals: { recipe: recipe } %>
-<% end %>

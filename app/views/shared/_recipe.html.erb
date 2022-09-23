@@ -1,16 +1,16 @@
-<div>
- <div>
-   <h2><%= recipe.name %></h2>
-   <span>
-    <% if current_user.id == recipe.user_id %>
-      <%= button_to "DELETE", recipe_path(id: recipe.id), :method => "delete" %>
-      <%= button_to "Recipe details", recipe_path(id: recipe.id), :method => "get" %>
-    <% end %>
-   </span>
- </div>
+<div class="flex flex-bordered padding">
+  <div>
+    <h2 class="list-title"><%= recipe.name %></h2>
+    <span class="flex-space-between">
+      <% if current_user.id == recipe.user_id %>
+        <%= button_to "DELETE", recipe_path(id: recipe.id), :method => "delete", class: 'margin-right' %>
+        <%= button_to "Recipe details", recipe_path(id: recipe.id), :method => "get" %>
+      <% end %>
+    </span>
+  </div>
 
- <div>
-   <p><%= recipe.description %></p>
- <div>
+  <div>
+    <p><%= recipe.description %></p>
+  </div>
 
 </div>
