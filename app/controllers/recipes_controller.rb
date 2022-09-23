@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
   end
 
   def public
-    @recipes = Recipe.includes(recipe_foods: :food).where("public = true")
+    @recipes = Recipe.includes(recipe_foods: :food).where('public = true')
   end
 
   def recipe_params

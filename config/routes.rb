@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root 'foods#index'
 
   resources :foods, except: [:update]
-  resources :recipes, except: [:update] do 
+  resources :recipes, except: [:update] do
     resources :recipe_foods
   end
 
