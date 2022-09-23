@@ -7,7 +7,7 @@ class RecipeFoodsController < ApplicationController
   def create
     @recipe = Recipe.find(params[:recipe_id])
     @recipe_food = @recipe.recipe_foods.build(recipe_food_params)
-    redirect_to recipes_path(@recipe.id) if @recipe_food.save
+    redirect_to recipe_path(@recipe.id) if @recipe_food.save
   end
 
   def recipe_food_params

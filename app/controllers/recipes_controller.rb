@@ -22,6 +22,10 @@ class RecipesController < ApplicationController
     redirect_to recipes_path, notice: 'You have successfully deleted a recipe.' if recipe.destroy
   end
 
+  def public
+    @recipes = Recipe.includes(recipe_foods: :food).where("public = true")
+  end
+
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
