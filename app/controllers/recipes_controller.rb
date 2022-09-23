@@ -3,7 +3,9 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
-  def show; end
+  def show
+    @recipe = Recipe.find(params[:id])
+  end
 
   def new
     @recipe = Recipe.new
@@ -18,6 +20,10 @@ class RecipesController < ApplicationController
   def destroy
     recipe = Recipe.find(params[:id])
     redirect_to recipes_path, notice: 'You have successfully deleted a recipe.' if recipe.destroy
+  end
+
+  def public
+    @recipes = Recipe.includes(recipe_foods: :food).where('public = true')
   end
 
   def recipe_params
