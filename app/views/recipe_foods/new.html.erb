@@ -1,0 +1,14 @@
+<h1 class="page-header">Add ingeridients</h1>
+<%= form_with model: @recipe_food, url: recipe_recipe_foods_path  do |f| %>
+  <div class="form-control">
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="form-control">
+    <%= f.label :food, 'Select food' %><br>
+    <%= f.select :food_id, @foods.map { |f| [f.name, f.id]}, {}, class: "form-control" %>
+  </div>
+  <div>
+    <%= f.submit "Add Recipe", class: 'button' %>
+  </div>
+<% end %>

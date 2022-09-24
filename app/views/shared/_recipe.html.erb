@@ -1,0 +1,16 @@
+<div class="flex flex-bordered padding">
+  <div>
+    <h2 class="list-title"><%= recipe.name %></h2>
+    <span class="flex-space-between">
+      <% if can? :delete, recipe %>
+        <%= button_to "DELETE", recipe_path(id: recipe.id), :method => "delete", class: 'margin-right' %>
+        <%= button_to "Recipe details", recipe_path(id: recipe.id), :method => "get" %>
+      <% end %>
+    </span>
+  </div>
+
+  <div>
+    <p><%= recipe.description %></p>
+  </div>
+
+</div>
